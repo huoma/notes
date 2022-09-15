@@ -23,8 +23,13 @@ CREATE TABLE FP_DB(
    ID INT PRIMARY KEY     NOT NULL,
    NAME           TEXT    NOT NULL,
    DB_ID          TEXT    NOT NULL,
-   CREATE_DATETIME   TEXT,
+   CREATE_DATETIME   TEXT
 );
+
+.tables # 查看
+.schema fp_db
+.header on 显示表头
+.width 10, 20, 10 依次设置列宽
 
 3. 插入数据
 INSERT INTO FP_DB (ID,NAME,DB_ID,CREATE_DATETIME)
@@ -44,9 +49,6 @@ SELECT * FROM FP_DB;
 SELECT ID, NAME,DB_ID FROM FP_DB;
 
 #---------------------------------------------------------------------------------------------------------------------
-.header on
-.width 10, 20, 10依次设置列宽
-
 sqlite_master表：
 sqlite_master是一个表，属于系统表，存放在根页中，每一个数据库的.db文件都有一个sqlite_master表。
 sqlite_master表存放了.db中所有表的相关信息，比如:表的名称、用于创建此表的sql语句、索引、索引所属的表、创建索引的sql语句等。
