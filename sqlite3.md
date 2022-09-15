@@ -122,23 +122,66 @@ print ("数据插入成功")
 conn.close()
 ```
 ### 4. 删除数据
-
-### 5. 修改数据
-
-### 6. 查询数据
-```import sqlite3
+```
+import sqlite3
 
 conn = sqlite3.connect('test.db')
 c = conn.cursor()
 print ("数据库打开成功")
 
-cursor = c.execute("SELECT id, name, address, salary  from COMPANY")
+c.execute("DELETE FROM FP_DB WHERE ID = 1;")
+conn.commit()
+print "Total number of rows deleted :", conn.total_changes
+
+cursor = c.execute("SELECT ID,NAME,DB_ID,CREATE_DATETIME FROM FP_DB")
 for row in cursor:
-   print "ID = ", row[0]
-   print "NAME = ", row[1]
-   print "ADDRESS = ", row[2]
-   print "SALARY = ", row[3], "\n"
+   print("ID = ", row[0])
+   print("NAME = ", row[1])
+   print("DB_ID = ", row[2])
+   print("CREATE_DATETIME = ", row[3])
 
 print ("数据操作成功")
+conn.close()
+```
+### 5. 修改数据
+```
+#!/usr/bin/python
+
+import sqlite3
+
+conn = sqlite3.connect('test.db')
+c = conn.cursor()
+print ("数据库打开成功")
+
+c.execute("UPDATE FP_DB SET DB_ID = '678910' WHERE NAME = 'test2';")
+conn.commit()
+print("Total number of rows updated :", conn.total_changes)
+
+cursor = c.execute("SELECT ID,NAME,DB_ID,CREATE_DATETIME FROM FP_DB")
+for row in cursor:
+   print("ID = ", row[0])
+   print("NAME = ", row[1])
+   print("DB_ID = ", row[2])
+   print("CREATE_DATETIME = ", row[3])
+
+print ("数据操作成功")
+conn.close()
+```
+### 6. 查询数据
+```
+import sqlite3
+
+conn = sqlite3.connect('test.db')
+c = conn.cursor()
+print ("数据库打开成功")
+
+cursor = c.execute("SELECT ID,NAME,DB_ID,CREATE_DATETIME FROM FP_DB")
+for row in cursor:
+   print("ID = ", row[0])
+   print("NAME = ", row[1])
+   print("DB_ID = ", row[2])
+   print("CREATE_DATETIME = ", row[3])
+
+print("数据操作成功")
 conn.close()
 ```
