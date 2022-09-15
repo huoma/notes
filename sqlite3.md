@@ -19,7 +19,6 @@ BLOB	值是一个 blob 数据，完全根据它的输入存储。
 ref: https://www.runoob.com/sqlite/sqlite-data-types.html
 
 2. 创建表
-
 CREATE TABLE FP_DB(
    ID INT PRIMARY KEY     NOT NULL,
    NAME           TEXT    NOT NULL,
