@@ -76,14 +76,16 @@ ELECT sql FROM sqlite_master WHERE type = 'table' AND tbl_name = 'FP_DB';
 ```
 
 ## python3操作sqlite
+
+### 1. 数据库创建
 ```
-1. 数据库创建
-```import sqlite3
+import sqlite3
 conn = sqlite3.connect('test.db')
 print("数据库打开成功")
 ```
 
-2. 创建数据表
+### 2. 创建数据表
+```
 import sqlite3
 
 conn = sqlite3.connect('test.db')
@@ -101,8 +103,9 @@ c.execute(sql_1)
 print ("数据表创建成功")
 conn.commit()
 conn.close()
-
-3. 插入数据
+```
+### 3. 插入数据
+```
 import sqlite3
 
 conn = sqlite3.connect('test.db')
@@ -118,12 +121,12 @@ conn.commit()
 print ("数据插入成功")
 conn.close()
 ```
-4. 删除数据
+### 4. 删除数据
 
-5. 修改数据
+### 5. 修改数据
 
-6. 查询数据
-import sqlite3
+### 6. 查询数据
+```import sqlite3
 
 conn = sqlite3.connect('test.db')
 c = conn.cursor()
@@ -138,3 +141,4 @@ for row in cursor:
 
 print ("数据操作成功")
 conn.close()
+```
