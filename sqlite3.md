@@ -100,7 +100,7 @@ CREATE TABLE FP_DB(
 );
 """
 c.execute(sql_1)
-print ("数据表创建成功")
+print("数据表创建成功")
 conn.commit()
 conn.close()
 ```
@@ -110,7 +110,7 @@ import sqlite3
 
 conn = sqlite3.connect('test.db')
 c = conn.cursor()
-print ("数据库打开成功")
+print("数据库打开成功")
 
 c.execute("INSERT INTO FP_DB (ID,NAME,DB_ID,CREATE_DATETIME) \
 VALUES (1, 'test', '123456', '' );")
@@ -118,7 +118,7 @@ VALUES (1, 'test', '123456', '' );")
 c.execute("INSERT INTO FP_DB VALUES (2, 'test2', '1234567', '' );")
 
 conn.commit()
-print ("数据插入成功")
+print("数据插入成功")
 conn.close()
 ```
 ### 4. 删除数据
@@ -127,7 +127,7 @@ import sqlite3
 
 conn = sqlite3.connect('test.db')
 c = conn.cursor()
-print ("数据库打开成功")
+print("数据库打开成功")
 
 c.execute("DELETE FROM FP_DB WHERE ID = 1;")
 conn.commit()
@@ -140,7 +140,7 @@ for row in cursor:
    print("DB_ID = ", row[2])
    print("CREATE_DATETIME = ", row[3])
 
-print ("数据操作成功")
+print("数据操作成功")
 conn.close()
 ```
 ### 5. 修改数据
@@ -151,7 +151,7 @@ import sqlite3
 
 conn = sqlite3.connect('test.db')
 c = conn.cursor()
-print ("数据库打开成功")
+print("数据库打开成功")
 
 c.execute("UPDATE FP_DB SET DB_ID = '678910' WHERE NAME = 'test2';")
 conn.commit()
@@ -164,7 +164,7 @@ for row in cursor:
    print("DB_ID = ", row[2])
    print("CREATE_DATETIME = ", row[3])
 
-print ("数据操作成功")
+print("数据操作成功")
 conn.close()
 ```
 ### 6. 查询数据
@@ -173,7 +173,7 @@ import sqlite3
 
 conn = sqlite3.connect('test.db')
 c = conn.cursor()
-print ("数据库打开成功")
+print("数据库打开成功")
 
 cursor = c.execute("SELECT ID,NAME,DB_ID,CREATE_DATETIME FROM FP_DB")
 for row in cursor:
