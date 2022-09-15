@@ -75,4 +75,7 @@ ref: https://blog.csdn.net/afootball/article/details/108200419
 ELECT sql FROM sqlite_master WHERE type = 'table' AND tbl_name = 'FP_DB';
 ```
 
+## python3操作sqlite
+```
+```
 
