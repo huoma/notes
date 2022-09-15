@@ -130,23 +130,25 @@ c = conn.cursor()
 print("数据库打开成功")
 
 c.execute("DELETE FROM FP_DB WHERE ID = 1;")
+
 conn.commit()
-print "Total number of rows deleted :", conn.total_changes
+print("Total number of rows deleted :", conn.total_changes)
 
 cursor = c.execute("SELECT ID,NAME,DB_ID,CREATE_DATETIME FROM FP_DB")
-for row in cursor:
-   print("ID = ", row[0])
-   print("NAME = ", row[1])
-   print("DB_ID = ", row[2])
-   print("CREATE_DATETIME = ", row[3])
-
+# for row in cursor:
+#     print("ID = ", row[0])
+#     print("NAME = ", row[1])
+#     print("DB_ID = ", row[2])
+#     print("CREATE_DATETIME = ", row[3])
+# c.fetchone()  # 取出第一条,返回元组或None
+print(c.fetchall())  # 取出所有（返回列表套元组或空列表）
+# c.fetchmany(6) # 取出指定数量（返回列表套元组或空列表）
 print("数据操作成功")
 conn.close()
+
 ```
 ### 5. 修改数据
 ```
-#!/usr/bin/python
-
 import sqlite3
 
 conn = sqlite3.connect('test.db')
@@ -159,10 +161,10 @@ print("Total number of rows updated :", conn.total_changes)
 
 cursor = c.execute("SELECT ID,NAME,DB_ID,CREATE_DATETIME FROM FP_DB")
 for row in cursor:
-   print("ID = ", row[0])
-   print("NAME = ", row[1])
-   print("DB_ID = ", row[2])
-   print("CREATE_DATETIME = ", row[3])
+    print("ID = ", row[0])
+    print("NAME = ", row[1])
+    print("DB_ID = ", row[2])
+    print("CREATE_DATETIME = ", row[3])
 
 print("数据操作成功")
 conn.close()
@@ -177,10 +179,10 @@ print("数据库打开成功")
 
 cursor = c.execute("SELECT ID,NAME,DB_ID,CREATE_DATETIME FROM FP_DB")
 for row in cursor:
-   print("ID = ", row[0])
-   print("NAME = ", row[1])
-   print("DB_ID = ", row[2])
-   print("CREATE_DATETIME = ", row[3])
+    print("ID = ", row[0])
+    print("NAME = ", row[1])
+    print("DB_ID = ", row[2])
+    print("CREATE_DATETIME = ", row[3])
 
 print("数据操作成功")
 conn.close()
