@@ -1,5 +1,4 @@
 # sqlite学习记录
-[toc]
 
 ## 创建一个数据库
 ```
@@ -78,5 +77,64 @@ ELECT sql FROM sqlite_master WHERE type = 'table' AND tbl_name = 'FP_DB';
 
 ## python3操作sqlite
 ```
+1. 数据库创建
+```import sqlite3
+conn = sqlite3.connect('test.db')
+print("数据库打开成功")
 ```
 
+2. 创建数据表
+import sqlite3
+
+conn = sqlite3.connect('test.db')
+print("数据库打开成功")
+c = conn.cursor()
+sql_1 = """
+CREATE TABLE FP_DB(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL,
+   DB_ID          TEXT    NOT NULL,
+   CREATE_DATETIME   TEXT
+);
+"""
+c.execute(sql_1)
+print ("数据表创建成功")
+conn.commit()
+conn.close()
+
+3. 插入数据
+import sqlite3
+
+conn = sqlite3.connect('test.db')
+c = conn.cursor()
+print ("数据库打开成功")
+
+c.execute("INSERT INTO FP_DB (ID,NAME,DB_ID,CREATE_DATETIME) \
+VALUES (1, 'test', '123456', '' );")
+      
+c.execute("INSERT INTO FP_DB VALUES (2, 'test2', '1234567', '' );")
+
+conn.commit()
+print ("数据插入成功")
+conn.close()
+```
+4. 删除数据
+
+5. 修改数据
+
+6. 查询数据
+import sqlite3
+
+conn = sqlite3.connect('test.db')
+c = conn.cursor()
+print ("数据库打开成功")
+
+cursor = c.execute("SELECT id, name, address, salary  from COMPANY")
+for row in cursor:
+   print "ID = ", row[0]
+   print "NAME = ", row[1]
+   print "ADDRESS = ", row[2]
+   print "SALARY = ", row[3], "\n"
+
+print ("数据操作成功")
+conn.close()
