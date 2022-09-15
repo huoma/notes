@@ -353,4 +353,5 @@ if __name__ == '__main__':
     # delete()
 
 ```
-## ps: 生成目录参考：http://www.souyuncode.com/150.html
+## ps: 生成目录参考：http://www.souyuncode.com/150.html XX不行
+还是打开vscode,使用Markdown All in One插件生成，Ctrl + Shift + p，打开命令输入框，输入 Create Table of Contents 回车，目录生成 
